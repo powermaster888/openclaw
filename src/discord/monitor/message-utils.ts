@@ -6,7 +6,12 @@ import type { SsrFPolicy } from "../../infra/net/ssrf.js";
 import { fetchRemoteMedia, type FetchLike } from "../../media/fetch.js";
 import { saveMediaBuffer } from "../../media/store.js";
 
-const DISCORD_CDN_HOSTNAMES = ["cdn.discordapp.com", "media.discordapp.net"];
+const DISCORD_CDN_HOSTNAMES = [
+  "cdn.discordapp.com",
+  "media.discordapp.net",
+  "*.discordapp.com",
+  "*.discordapp.net",
+];
 
 // Allow Discord CDN downloads when VPN/proxy DNS resolves to RFC2544 benchmark ranges.
 const DISCORD_MEDIA_SSRF_POLICY: SsrFPolicy = {

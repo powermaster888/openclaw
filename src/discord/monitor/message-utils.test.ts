@@ -30,7 +30,12 @@ function asMessage(payload: Record<string, unknown>): Message {
   return payload as unknown as Message;
 }
 
-const DISCORD_CDN_HOSTNAMES = ["cdn.discordapp.com", "media.discordapp.net"];
+const DISCORD_CDN_HOSTNAMES = [
+  "cdn.discordapp.com",
+  "media.discordapp.net",
+  "*.discordapp.com",
+  "*.discordapp.net",
+];
 
 function expectDiscordCdnSsrFPolicy(policy: unknown) {
   expect(policy).toEqual(
